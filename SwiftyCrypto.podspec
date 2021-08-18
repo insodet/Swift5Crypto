@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Swift5Crypto"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Wstunes's library for Crypto using Swift, adapted to Swift 5"
   s.homepage     = "https://github.com/insodet/Swift5Crypto"
   s.license      = { :type => "MIT", :file => "LICENSE" }
