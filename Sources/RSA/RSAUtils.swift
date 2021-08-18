@@ -52,7 +52,7 @@ class RSAUtils {
 
     static func secKeyFromData(keyData: Data, keyType: RSAKeyType, tag: String) throws -> SecKey {
 
-        var keyData = keyData
+        let keyData = keyData
 
         guard let tagData = tag.data(using: .utf8) else {
             throw SwiftyCryptoError.tagEncodingFailed

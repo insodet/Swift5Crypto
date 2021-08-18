@@ -47,7 +47,7 @@ public class RSAMessage: Message {
             throw SwiftyCryptoError.signatureCreateFailed(status: status)
         }
         
-        let signatureData = Data(bytes: UnsafePointer<UInt8>(signatureBytes), count: signatureBytes.count)
+        let signatureData = Data(signatureBytes)
         return RSASignature(data: signatureData)
     }
     

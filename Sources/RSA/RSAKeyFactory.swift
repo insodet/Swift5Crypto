@@ -23,19 +23,19 @@ public class RSAKeyFactory: NSObject {
         let publicKeyAttr: [NSString: Any] = [
             kSecAttrIsPermanent: NSNumber(value: true),
             kSecAttrApplicationTag: publicKeyTag.data(using: .utf8) as Any,
-            kSecAttrAccessible: kSecAttrAccessibleAlways
+            kSecAttrAccessible: kSecAttrAccessibleWhenUnlocked
         ]
         let privateKeyAttr: [NSString: Any] = [
             kSecAttrIsPermanent: NSNumber(value: true),
             kSecAttrApplicationTag: privateKeyTag.data(using: .utf8) as Any,
-            kSecAttrAccessible: kSecAttrAccessibleAlways
+            kSecAttrAccessible: kSecAttrAccessibleWhenUnlocked
         ]
 
         let keyPairAttr: [NSString: Any] = [
             kSecAttrKeyType: kSecAttrKeyTypeRSA,
             kSecAttrKeySizeInBits: keySize.rawValue,
             kSecPublicKeyAttrs: publicKeyAttr,
-            kSecPrivateKeyAttrs: privateKeyAttr
+            kSecPrivateKeyAttrs: privateKeyAttr,
         ]
 
         var publicKey: SecKey?

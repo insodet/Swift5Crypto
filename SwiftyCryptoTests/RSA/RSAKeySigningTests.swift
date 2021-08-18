@@ -60,7 +60,7 @@ class SwiftyCryptoRSATests: XCTestCase {
         let messageTobeSigned = try? RSAMessage.init(base64String: "ZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnpkV0lpT2lJeE1qTTBOVFkzT0Rrd0lpd2libUZ0WlNJNkluTm9kVzkzWVc1bklpd2lZV1J0YVc0aU9uUnlkV1Y5")
         XCTAssert(nil != messageTobeSigned)
 
-        let signature = try? messageTobeSigned?.sign(signingKey: privateKey!, digestType: RSASignature.DigestType.sha256)
+        let signature = ((try? messageTobeSigned?.sign(signingKey: privateKey!, digestType: RSASignature.DigestType.sha256)) as RSASignature??)
         XCTAssert(nil != signature)
         XCTAssert("KR7KPmWtY46Bc3tal4CoNSHGVLh7jgJC1+AlRzBxFw0/4HNBa5a4/Gynb2PG9RljvnppM+Uy9TX2WitHIh9zE/OxaP0faQ/Lc2GyIcX0CBrz4IZ0O0Ky/w1g5ugaT+XoKOzZlUso1F5Nr/waYVyWW57wdtf+BXDoOkj33iAPi/lqFpQrdD501MOs0rrttunJWs/X684jJr7aew8cs1JXNn91+krRt/z8VFJkgYClnfdAc6SPSbHQZPQB1kxApHANJYZEUOyiHn4AUhqnJ9IlWHKJl2KUKIqEVyKQWimoGIT2Sj6xBtIu4Zmx81fmyL1K3HksLCgbxYR03PGqN+WH1g==" == signature!!.base64String)
 
@@ -68,7 +68,7 @@ class SwiftyCryptoRSATests: XCTestCase {
         XCTAssert(true == (try! messageTobeSigned?.verify(verifyKey: publicKey!, signature: signature!!, digestType: RSASignature.DigestType.sha256))!)
 
         // failed verification
-        XCTAssert(false == (try! messageTobeSigned?.verify(verifyKey: keyPair!.publicKey, signature: signature!!, digestType: RSASignature.DigestType.sha256))!)
+        XCTAssert(false == (try messageTobeSigned?.verify(verifyKey: keyPair!.publicKey, signature: signature!!, digestType: RSASignature.DigestType.sha256))!)
     }
 
 }
