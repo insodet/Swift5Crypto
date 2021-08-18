@@ -1,22 +1,16 @@
 Pod::Spec.new do |s|
   s.name         = "Swift5Crypto"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Wstunes's library for Crypto using Swift, adapted to Swift 5"
   s.homepage     = "https://github.com/insodet/Swift5Crypto"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Wstunes" => "wangshuogr@qq.com" }
   s.platform     = :ios, "13.0"
-  s.source       = { :git => "https://github.com/insodet/Swift5Crypto", :tag => s.version }
+  s.source       = { :git => "https://github.com/insodet/Swift5Crypto.git", :tag => s.version }
   s.source_files = 'Sources/**/*.swift'
   s.preserve_paths = 'CocoaPods/**/*'
   s.swift_version = '5.0'
   s.pod_target_xcconfig = {
-    'SWIFT_INCLUDE_PATHS[sdk=macosx*]'           => '$(PODS_ROOT)/SwiftyCrypto/CocoaPods/macosx',
-    'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]'         => '$(PODS_ROOT)/SwiftyCrypto/CocoaPods/iphoneos',
-    'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'  => '$(PODS_ROOT)/SwiftyCrypto/CocoaPods/iphonesimulator',
-    'SWIFT_INCLUDE_PATHS[sdk=appletvos*]'        => '$(PODS_ROOT)/SwiftyCrypto/CocoaPods/appletvos',
-    'SWIFT_INCLUDE_PATHS[sdk=appletvsimulator*]' => '$(PODS_ROOT)/SwiftyCrypto/CocoaPods/appletvsimulator',
-    'SWIFT_INCLUDE_PATHS[sdk=watchos*]'          => '$(PODS_ROOT)/SwiftyCrypto/CocoaPods/watchos',
-    'SWIFT_INCLUDE_PATHS[sdk=watchsimulator*]'   => '$(PODS_ROOT)/SwiftyCrypto/CocoaPods/watchsimulator'
+
   }
 end
