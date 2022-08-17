@@ -7,7 +7,11 @@
 //
 
 import XCTest
+#if os(watchOS)
+@testable import SwiftyCryptoWatchOS
+#else
 @testable import SwiftyCrypto
+#endif
 
 class RSAMessageTests: XCTestCase {
     
